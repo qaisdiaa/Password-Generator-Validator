@@ -20,12 +20,16 @@ def validate_password():
 
 # User input, call function(s), output result
 while True:
-    user_input = int(input("Do you want to (1) generate a password or (2) validate a password?"))
-    if user_input == 1:
-        x = int(input("Enter the desired password length (minimum 12): "))
-        password = generate_password(x)
-        print("Generated password:", password)
-    elif user_input == 2:
-        validate_password()
-    else:
-        break
+    try:
+        user_input = int(input("Do you want to (1) generate a password or (2) validate a password? "))
+        if user_input == 1:
+            x = int(input("Enter the desired password length (minimum 12): "))
+            password = generate_password(x)
+            print("Generated password:", password)
+        elif user_input == 2:
+            validate_password()
+            break
+        else:
+            print("Please enter a number between 1 and 2")
+    except ValueError:
+        print("Please enter a number. Either 1 or 2")
